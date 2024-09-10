@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const REGISTER_URL = 'http://localhost:8000/api/users/register/'
 const CONFIRM_REGISTER_API = 'http://localhost:8000/api/users/confirmation-register/'
+const LOGIN_URL = 'http://localhost:8000/api/users/login'
 
 export const registerUser = async (email, password, password_confirmation) => {
   try {
@@ -39,6 +40,29 @@ export const confirmRegisterUser = async (email, code) => {
         }
       }
     );
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      return error.response.data;
+    }
+    throw error;
+  }
+};
+
+
+export const loginUser = async (email, password) => {
+  try {
+    const response = await axios.post(LOGIN_URL,
+        {
+          email: email,
+          password: password
+        },
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+        );
     return response.data;
   } catch (error) {
     if (error.response) {

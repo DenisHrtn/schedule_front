@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { confirmRegisterUser } from "../api/authApi";
+import { confirmRegisterUser} from "../../api/authApi";
+import './ConfirmationRegister.css'
 
 const ConfirmationRegisterForm = () => {
     const [email, setEmail] = useState('');

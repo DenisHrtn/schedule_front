@@ -1,21 +1,35 @@
-// /src/App.js
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import RegisterForm from "./components/RegisterForm";
-import ConfirmationRegisterForm from "./components/ConfirmationRegisterForm";
+import RegisterForm from "./components/Register/RegisterForm";
+import ConfirmationRegisterForm from "./components/ConfirmationRegister/ConfirmationRegisterForm";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import './App.css';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <Router>
       <div className="App">
-        <h1>User Authentication</h1>
-        <Routes>
-          {/* Маршрут для страницы регистрации */}
-          <Route path="/register" element={<RegisterForm />} />
+        <Header isLoggedIn={isLoggedIn} /> {}
 
-          {/* Маршрут для подтверждения регистрации */}
-          <Route path="/confirm-register" element={<ConfirmationRegisterForm />} />
-        </Routes>
+        <main>
+          <div className="form-container">
+            <Routes>
+              {}
+              <Route path="/register" element={<RegisterForm />} />
+
+              {}
+              <Route path="/confirm-register" element={<ConfirmationRegisterForm />} />
+
+              {}
+              <Route path="/login" element={</>}>
+            </Routes>
+          </div>
+        </main>
+
+        <Footer />
       </div>
     </Router>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { registerUser} from '../api/authApi';
+import { registerUser } from '../../api/authApi'
+import './RegisterForm.css';
 
 const RegisterForm = () => {
     const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ const RegisterForm = () => {
         setError('');
         setMessage('');
 
-        if (password != passwordConfirmation) {
+        if (password !== passwordConfirmation) {
             setError("Passwords do not match.");
             return;
         }
